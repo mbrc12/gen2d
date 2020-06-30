@@ -1,0 +1,23 @@
+(ns {{name}}.main
+  (:require [clojure2d.core :as c]
+            [clojure2d.color :as color]
+            [fastmath.random :as r]))
+
+(def PATH "out/1.jpg")
+(def WIDTH 500.)
+(def HEIGHT 500.)
+
+;; Function must return canvas
+
+(defn draw [canvas]
+
+  canvas)
+
+(defn main []
+  (let [canvas (c/canvas WIDTH HEIGHT)]
+    (c/with-canvas-> canvas
+      draw
+      (c/save PATH))))
+
+;; Uncomment the next line to evaluate the main. Or call (main) from the repl.
+;; (main)
