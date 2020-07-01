@@ -1,11 +1,27 @@
 (ns {{name}}.main
   (:require [clojure2d.core :as c]
             [clojure2d.color :as color]
-            [fastmath.random :as r]))
+            [fastmath.random :as r]
+            [fastmath.vector :as v]
+            [clojure2d.pixels :as p]))
 
-(def PATH "out/1.jpg")
+(def ^:dynamic PATH "out/9.jpg")
 (def WIDTH 500.)
 (def HEIGHT 500.)
+
+;; Translate points from [0, 1] x [0, 1] -> standard coords
+(defn trans
+  ([x y]
+   (let [x- (* x WIDTH)
+         y- (- HEIGHT (* y HEIGHT))
+         rnd #(Math/round (float %))]
+     (mapv rnd [x- y-])))
+
+  ([w]
+   (apply v/vec2 (apply trans w))))
+
+
+
 
 ;; Function must return canvas
 
